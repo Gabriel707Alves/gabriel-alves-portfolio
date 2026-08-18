@@ -1,0 +1,195 @@
+/* =========================================================
+   Váriaveis
+   ========================================================= */
+
+:root {
+    --bg: #0A0E14;
+    --surface: #121821;
+    --surface-alt: #0E131B;
+    --border: #232C38;
+
+    --ink: #E7ECF2;
+    --ink-soft: #97A3B2;
+    --ink-faint: #5C6878;
+
+    --accent: #4C8DFF;
+    --accent-dark: #2F6FE0;
+    --accent-soft: rgba(76, 141, 255, 0.12);
+    --on-accent: #FFFFFF;
+
+    --font-display: "Sora", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    --radius: 10px;
+    --radius-sm: 6px;
+    --container: 1120px;
+}
+
+/* =========================================================
+   RESET BÁSICO
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 20, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+}
+
+.logo__dot {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav__link {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    transition: color 0.15s ease;
+}
+
+.nav__link:hover {
+    color: var(--ink);
+}
+
+.nav__link--cta {
+    color: var(--on-accent);
+    background: var(--accent-dark);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+}
+
+.nav__link--cta:hover {
+    background: var(--accent);
+    color: var(--on-accent);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
