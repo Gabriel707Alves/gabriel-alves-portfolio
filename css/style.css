@@ -420,3 +420,59 @@ textarea:focus-visible {
     margin-top: auto;
     padding-top: 8px;
 }
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--primary {
+    background: var(--accent-dark);
+    color: var(--on-accent);
+}
+
+.btn--primary:hover {
+    background: var(--accent);
+}
+
+.btn--ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--ink);
+}
+
+.btn--ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn--outline {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn--outline:hover {
+    background: var(--accent-soft);
+    color: var(--ink);
+}
+
+.btn__icon {
+    font-size: 0.9em;
+}
+
+.btn--small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
